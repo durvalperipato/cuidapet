@@ -27,6 +27,14 @@ mixin _$AuthStore on AuthStoreBase, Store {
     });
   }
 
+  late final _$loadUserLoggedAsyncAction =
+      AsyncAction('AuthStoreBase.loadUserLogged', context: context);
+
+  @override
+  Future<void> loadUserLogged() {
+    return _$loadUserLoggedAsyncAction.run(() => super.loadUserLogged());
+  }
+
   @override
   String toString() {
     return '''
