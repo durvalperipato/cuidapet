@@ -1,5 +1,6 @@
 import 'package:cuidapet_mobile/app/core/ui/icons/cuidapet_icons.dart';
 import 'package:cuidapet_mobile/app/core/ui/widgets/cuidapet_text_form_field.dart';
+import 'package:cuidapet_mobile/app/core/ui/widgets/rounded_button_with_icon.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,11 +29,19 @@ class _LoginPageState extends State<LoginPage> {
                 label: 'Login',
                 obscureText: true,
               ),
-              const Icon(
-                CuidapetIcons.facebook,
+              RoundedButtonWithIcon(
+                onTap: () {},
+                width: 200,
+                color: Colors.blue,
+                icon: CuidapetIcons.facebook,
+                label: 'Facebook',
               ),
-              const Icon(
-                CuidapetIcons.google,
+              RoundedButtonWithIcon(
+                onTap: () {},
+                width: 200,
+                color: Colors.orange,
+                icon: CuidapetIcons.google,
+                label: 'Google',
               ),
             ],
           ),
