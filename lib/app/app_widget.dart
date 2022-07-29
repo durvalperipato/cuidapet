@@ -17,7 +17,7 @@ class AppWidget extends StatelessWidget {
         title: UiConfig.title,
         theme: UiConfig.theme,
         debugShowCheckedModeBanner: false,
-        builder: (context, child) => asuka.builder(context, child),
+        builder: asuka.builder,
         routeInformationParser: Modular.routeInformationParser,
         routerDelegate: Modular.routerDelegate,
       ),
