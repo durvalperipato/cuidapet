@@ -51,9 +51,7 @@ class _OrSeparator extends StatelessWidget {
           child: Text(
             'OU',
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
-                color: context.primaryColor),
+                fontWeight: FontWeight.bold, fontSize: 16.sp, color: context.primaryColor),
           ),
         ),
         Expanded(
