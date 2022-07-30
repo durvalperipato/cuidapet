@@ -6,6 +6,7 @@ class RestClientException implements Exception {
   int? statusCode;
   dynamic error;
   RestClientResponse response;
+
   RestClientException({
     this.message,
     this.statusCode,
