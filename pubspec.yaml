@@ -47,6 +47,8 @@ dependencies:
   logger: ^1.1.0
   shared_preferences: ^2.0.15
   flutter_secure_storage: ^5.0.2
+  firebase_auth: ^3.6.1
+  validatorless: ^1.2.1
 
 
 dev_dependencies:
