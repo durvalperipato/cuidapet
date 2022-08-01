@@ -33,4 +33,24 @@ class UserRepositoryImpl implements UserRepository {
       throw Failure(message: 'Erro ao registar usuário');
     }
   }
+
+  @override
+  Future<String> login({required String email, required String password}) async {
+    try {
+      final result = await _restClient.unauth().post('/auth/', data: {
+        'login': email,
+        'password': password,
+        'social_login': false,
+        'supplier_user': false,
+      });
+
+      return result.data['access_token'];
+    } on RestClientException catch (e, s) {
+      if (e.statusCode == 403) {
+        throw Failure(message: 'Usuário inconsistente, entre em contato com o suporte');
+      }
+      _log.error('Erro ao realizar login', e, s);
+      throw Failure(message: 'Erro ao realizar login, tente novamente mais tarde');
+    }
+  }
 }

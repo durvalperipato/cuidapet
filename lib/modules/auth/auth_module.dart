@@ -12,7 +12,8 @@ class AuthModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.lazySingleton<UserRepository>((i) => UserRepositoryImpl(log: i(), restClient: i())),
-        Bind.lazySingleton<UserService>((i) => UserServiceImpl(log: i(), userRepository: i())),
+        Bind.lazySingleton<UserService>(
+            (i) => UserServiceImpl(log: i(), userRepository: i(), localStorage: i())),
       ];
 
   @override
