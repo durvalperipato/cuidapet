@@ -58,8 +58,6 @@ class UserServiceImpl implements UserService {
           throw Failure(message: 'Email não confirmado, por favor verifique sua caixa de spam');
         }
         final accessToken = await _userRepository.login(email: email, password: password);
-        final xx = await _localStorage.read<String>(Constants.LOCAL_STORAGE_ACCESS_TOKEN_KEY);
-        print(xx);
         await _saveAccessToken(accessToken);
       } else {
         throw Failure(message: 'Login não pode ser feito por e-mail e password');

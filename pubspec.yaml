@@ -49,6 +49,7 @@ dependencies:
   flutter_secure_storage: ^5.0.2
   firebase_auth: ^3.6.1
   validatorless: ^1.2.1
+  firebase_messaging: ^12.0.1
 
 
 dev_dependencies:
