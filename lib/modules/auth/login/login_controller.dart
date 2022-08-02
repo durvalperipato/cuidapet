@@ -3,6 +3,7 @@ import 'package:cuidapet_mobile/app/core/exceptions/failure.dart';
 import 'package:cuidapet_mobile/app/core/exceptions/user_not_exists_exception.dart';
 import 'package:cuidapet_mobile/app/core/ui/widgets/loader.dart';
 import 'package:cuidapet_mobile/app/core/ui/widgets/messages.dart';
+import 'package:cuidapet_mobile/app/models/social_login_type.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -37,6 +38,18 @@ abstract class LoginControllerBase with Store {
       const message = "Usuário não encontrado";
       _log.error(message);
       Messages.alert(message);
+    } finally {
+      Loader.hide();
+    }
+  }
+
+  Future<void> socialLogin(SocialLoginType socialLoginType) async {
+    try {
+      Loader.show();
+      await _userService.socialLogin(socialLoginType);
+    } on Failure catch (e, s) {
+      _log.error('Erro ao realizar login', e, s);
+      Messages.alert(e.message ?? 'Erro ao realizar login');
     } finally {
       Loader.hide();
     }
