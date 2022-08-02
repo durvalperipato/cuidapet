@@ -6,6 +6,7 @@ import 'package:cuidapet_mobile/app/core/rest_client/dio/interceptors/auth_inter
 import 'package:cuidapet_mobile/app/core/rest_client/rest_client.dart';
 import 'package:cuidapet_mobile/app/core/rest_client/rest_client_exception.dart';
 import 'package:cuidapet_mobile/app/core/rest_client/rest_client_response.dart';
+import 'package:cuidapet_mobile/modules/core/auth/auth_store.dart';
 import 'package:dio/dio.dart';
 
 class DioRestClient implements RestClient {
@@ -18,11 +19,15 @@ class DioRestClient implements RestClient {
         int.parse(Environments.params(Constants.ENV_REST_CLIENT_RECEIVE_TIMEOUT_KEY) ?? '0'),
   );
 
-  DioRestClient(
-      {required LocalStorage localStorage, required AppLogger log, BaseOptions? baseOptions}) {
+  DioRestClient({
+    required LocalStorage localStorage,
+    required AppLogger log,
+    required AuthStore authStore,
+    BaseOptions? baseOptions,
+  }) {
     _dio = Dio(baseOptions ?? _defaultOptions);
     _dio.interceptors.addAll([
-      AuthInterceptor(localStorage: localStorage, log: log),
+      AuthInterceptor(localStorage: localStorage, log: log, authStore: authStore),
       LogInterceptor(
         requestBody: true,
         responseBody: true,
