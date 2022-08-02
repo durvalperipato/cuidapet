@@ -51,6 +51,7 @@ dependencies:
   validatorless: ^1.2.1
   firebase_messaging: ^12.0.1
   google_sign_in: ^5.4.0
+  flutter_facebook_auth: ^4.4.0+1
 
 
 dev_dependencies:
