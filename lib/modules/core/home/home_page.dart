@@ -13,7 +13,9 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: SizedBox(
           child: TextButton(
-              onPressed: () => FirebaseAuth.instance.signOut(), child: const Text("Logout")),
+            onPressed: () => FirebaseAuth.instance.signOut(),
+            child: const Text("Logout"),
+          ),
         ),
       ),
     );
