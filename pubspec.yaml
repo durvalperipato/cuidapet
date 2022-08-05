@@ -53,6 +53,7 @@ dependencies:
   google_sign_in: ^5.4.0
   flutter_facebook_auth: ^4.4.0+1
   flutter_typeahead: ^4.0.0
+  google_place: ^0.4.7
 
 
 dev_dependencies:
