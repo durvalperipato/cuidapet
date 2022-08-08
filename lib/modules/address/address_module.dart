@@ -1,4 +1,5 @@
 import 'package:cuidapet_mobile/modules/address/address_page.dart';
+import 'package:cuidapet_mobile/modules/address/widgets/address_detail/address_detail_module.dart';
 import 'package:cuidapet_mobile/modules/address/widgets/address_search_widget/address_search_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -14,5 +15,6 @@ class AddressModule extends Module {
           '/',
           child: (_, __) => const AddressPage(),
         ),
+        ModuleRoute('/detail', module: AddressDetailModule()),
       ];
 }

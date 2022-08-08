@@ -1,7 +1,6 @@
 import 'package:cuidapet_mobile/modules/auth/home/auth_home_page.dart';
 import 'package:cuidapet_mobile/modules/auth/login/login_module.dart';
 import 'package:cuidapet_mobile/modules/auth/register/register_module.dart';
-import 'package:cuidapet_mobile/modules/core/core_module.dart';
 import 'package:cuidapet_mobile/repositories/social/social_repository.dart';
 import 'package:cuidapet_mobile/repositories/social/social_repository_impl.dart';
 import 'package:cuidapet_mobile/repositories/user/user_repository.dart';
