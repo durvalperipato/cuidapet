@@ -55,6 +55,9 @@ dependencies:
   flutter_typeahead: ^4.0.0
   google_place: ^0.4.7
   google_maps_flutter: ^2.1.10
+  sqflite: ^2.0.3+1
+  path: ^1.8.1
+  synchronized: ^3.0.0+2
 
 
 dev_dependencies:
