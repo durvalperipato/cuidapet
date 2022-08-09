@@ -1,14 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cuidapet_mobile/app/core/life_cycle/controller_life_cycle.dart';
 import 'package:cuidapet_mobile/app/core/ui/widgets/loader.dart';
 import 'package:cuidapet_mobile/app/entities/address_entity.dart';
 import 'package:cuidapet_mobile/app/models/place_model.dart';
+import 'package:cuidapet_mobile/services/address/address_service.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
-
-import 'package:cuidapet_mobile/app/core/life_cycle/controller_life_cycle.dart';
-import 'package:cuidapet_mobile/services/address/address_service.dart';
 
 part 'address_controller.g.dart';
 
@@ -18,13 +17,13 @@ abstract class AddressControllerBase with Store, ControllerLifeCycle {
   final AddressService _addressService;
 
   @readonly
-  bool _locationServiceUnavailable = false;
+  var _locationServiceUnavailable = false.obs();
 
   @readonly
-  List<AddressEntity> _addresses = [];
+  var _addresses = <AddressEntity>[];
 
   @readonly
-  LocationPermission? _locationPermission;
+  Observable<LocationPermission>? _locationPermission;
 
   AddressControllerBase({
     required AddressService addressService,
@@ -49,7 +48,7 @@ abstract class AddressControllerBase with Store, ControllerLifeCycle {
   Future<void> myLocation() async {
     final serviceEnable = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnable) {
-      _locationServiceUnavailable = true;
+      _locationServiceUnavailable = true.obs();
       return;
     }
 
@@ -59,13 +58,13 @@ abstract class AddressControllerBase with Store, ControllerLifeCycle {
         final permission = await Geolocator.requestPermission();
         if (permission == LocationPermission.denied ||
             permission == LocationPermission.deniedForever) {
-          _locationPermission = permission;
+          _locationPermission = Observable(permission);
           return;
         }
         break;
       case LocationPermission.deniedForever:
       case LocationPermission.unableToDetermine:
-        _locationPermission = locationPermission;
+        _locationPermission = Observable(locationPermission);
         return;
       case LocationPermission.whileInUse:
       case LocationPermission.always:

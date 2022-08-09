@@ -1,7 +1,7 @@
 part of '../register_page.dart';
 
 class _RegisterForm extends StatefulWidget {
-  const _RegisterForm({Key? key}) : super(key: key);
+  const _RegisterForm({super.key});
 
   @override
   State<_RegisterForm> createState() => _RegisterFormState();

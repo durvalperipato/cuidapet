@@ -1,7 +1,7 @@
 part of '../login_page.dart';
 
 class _LoginForm extends StatefulWidget {
-  const _LoginForm({Key? key}) : super(key: key);
+  const _LoginForm({super.key});
 
   @override
   State<_LoginForm> createState() => _LoginFormState();
@@ -68,7 +68,7 @@ class _LoginFormState extends State<_LoginForm> {
 }
 
 class _OrSeparator extends StatelessWidget {
-  const _OrSeparator({Key? key}) : super(key: key);
+  const _OrSeparator({super.key});
 
   @override
   Widget build(BuildContext context) {

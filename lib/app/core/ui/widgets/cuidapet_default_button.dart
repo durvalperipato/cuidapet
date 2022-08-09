@@ -15,7 +15,7 @@ class CuidapetDefaultButton extends StatelessWidget {
   final double height;
 
   const CuidapetDefaultButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.onPressed,
     this.borderRadius = 10,
@@ -25,7 +25,7 @@ class CuidapetDefaultButton extends StatelessWidget {
     this.padding = 10,
     this.width = double.infinity,
     this.height = 66,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

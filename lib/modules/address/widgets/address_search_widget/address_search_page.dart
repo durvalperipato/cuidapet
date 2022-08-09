@@ -4,8 +4,8 @@ part of '../../address_page.dart';
 typedef AddressSelectedCallback = void Function(PlaceModel);
 
 class _AddressSearchPage extends StatefulWidget {
-  final AddressSelectedCallback addresSelectedaCallback;
-  const _AddressSearchPage({required this.addresSelectedaCallback});
+  final AddressSelectedCallback addresSelectedCallback;
+  const _AddressSearchPage({required this.addresSelectedCallback});
 
   @override
   State<_AddressSearchPage> createState() => _AddressSearchWidgetState();
@@ -65,7 +65,7 @@ class _AddressSearchWidgetState extends State<_AddressSearchPage> {
 
   void _onSuggestionSelected(PlaceModel suggestion) {
     _searchTextEC.text = suggestion.address;
-    widget.addresSelectedaCallback(suggestion);
+    widget.addresSelectedCallback(suggestion);
   }
 }
 

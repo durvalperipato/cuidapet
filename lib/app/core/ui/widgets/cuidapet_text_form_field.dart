@@ -10,13 +10,12 @@ class CuidapetTextFormField extends StatelessWidget {
   final ValueNotifier<bool> _obscureTextVN;
 
   CuidapetTextFormField({
-    Key? key,
+    super.key,
     this.controller,
     this.validator,
     required this.label,
     this.obscureText = false,
-  })  : _obscureTextVN = ValueNotifier<bool>(obscureText),
-        super(key: key);
+  })  : _obscureTextVN = ValueNotifier<bool>(obscureText);
 
   @override
   Widget build(BuildContext context) {
