@@ -24,7 +24,6 @@ abstract class AddressDetailControllerBase with Store {
       Loader.show();
       final addressEntity = await _addressService.saveAddress(place, additional);
       _addressEntity = addressEntity;
-    } on Exception catch (e) {
     } finally {
       Loader.hide();
     }
