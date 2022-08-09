@@ -27,14 +27,13 @@ class SqliteConnectionFactory {
           if (_db == null) {
             final databasePath = await getDatabasesPath();
             final pathDatabase = join(databasePath, _databaseName);
-            _db ==
-                await openDatabase(
-                  pathDatabase,
-                  version: _version,
-                  onConfigure: _onConfigure,
-                  onCreate: _onCreate,
-                  onUpgrade: _onUpgrade,
-                );
+            _db = await openDatabase(
+              pathDatabase,
+              version: _version,
+              onConfigure: _onConfigure,
+              onCreate: _onCreate,
+              onUpgrade: _onUpgrade,
+            );
           }
         },
       );
@@ -45,6 +44,16 @@ class SqliteConnectionFactory {
 
   Future<void> _onConfigure(Database db) async {
     await db.execute('PRAGMA foreign_keys = ON');
+    final batch = db.batch();
+    batch.execute('''
+      CREATE TABLE address(
+        id Integer primary key auto_increment,
+        address text not null,
+        lat text,
+        lng text,
+        additional text
+      )
+      ''');
   }
 
   Future<void> _onCreate(Database db, int version) async {
