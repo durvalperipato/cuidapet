@@ -2,10 +2,9 @@
 import 'package:cuidapet_mobile/app/core/ui/extensions/size_screen_extension.dart';
 import 'package:cuidapet_mobile/app/core/ui/extensions/theme_extension.dart';
 import 'package:cuidapet_mobile/app/core/ui/widgets/cuidapet_default_button.dart';
+import 'package:cuidapet_mobile/app/models/place_model.dart';
 import 'package:cuidapet_mobile/modules/address/widgets/address_detail/address_detail_controller.dart';
 import 'package:flutter/material.dart';
-
-import 'package:cuidapet_mobile/app/models/place_model.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mobx/mobx.dart';
@@ -82,9 +81,11 @@ class _AddressDetailPageState extends State<AddressDetailPage> {
             child: TextFormField(
               readOnly: true,
               initialValue: widget.place.address,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Endereço',
-                suffixIcon: Icon(Icons.edit),
+                suffixIcon: IconButton(
+                    onPressed: () => Navigator.of(context).pop(widget.place),
+                    icon: const Icon(Icons.edit)),
               ),
             ),
           ),

@@ -83,10 +83,14 @@ class _AddressPageState extends PageLifeCycleState<AddressController, AddressPag
                 ),
               ),
               const SizedBox(height: 20),
-              _AddressSearchPage(
-                addresSelectedCallback: (place) {
-                  controller.goToAddressDetail(place);
-                },
+              Observer(
+                builder: (_) => _AddressSearchPage(
+                  key: UniqueKey(),
+                  addresSelectedCallback: (place) {
+                    controller.goToAddressDetail(place);
+                  },
+                  place: controller.placeModel,
+                ),
               ),
               const SizedBox(height: 40),
               ListTile(
