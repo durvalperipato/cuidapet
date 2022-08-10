@@ -30,22 +30,22 @@ class _AddressPageState extends PageLifeCycleState<AddressController, AddressPag
   @override
   void initState() {
     super.initState();
-    final reactionService = reaction<Observable<bool>>(
+    final reactionService = reaction<bool>(
       (_) => controller.locationServiceUnavailable,
       (locationServiceUnavailable) {
-        if (locationServiceUnavailable.value) {
+        if (locationServiceUnavailable) {
           showDialogLocationServiceUnvailable();
         }
       },
     );
-    final reactionLocationPermission = reaction<Observable<LocationPermission>?>(
-        (_) => controller.locationPermission, (locationPermission) {
-      if (locationPermission != null && locationPermission.value == LocationPermission.denied) {
+    final reactionLocationPermission =
+        reaction<LocationPermission?>((_) => controller.locationPermission, (locationPermission) {
+      if (locationPermission != null && locationPermission == LocationPermission.denied) {
         showDialogLocationDenied(
           tryAgain: () => controller.myLocation(),
         );
       } else if (locationPermission != null &&
-          locationPermission.value == LocationPermission.deniedForever) {
+          locationPermission == LocationPermission.deniedForever) {
         showDialogLocationDeniedForever();
       }
     });
