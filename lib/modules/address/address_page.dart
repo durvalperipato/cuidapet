@@ -115,8 +115,9 @@ class _AddressPageState extends PageLifeCycleState<AddressController, AddressPag
               Observer(
                 builder: (_) => Column(
                   children: controller.addresses
-                      .map((data) => _ItemTile(
+                      .map((data) => _AddressItem(
                             address: data.address,
+                            additional: data.additional,
                             onTap: () => controller.selectAddress(data),
                           ))
                       .toList(),

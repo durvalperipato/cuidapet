@@ -1,18 +1,28 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of '../address_page.dart';
 
 class _AddressItem extends StatelessWidget {
-  const _AddressItem({super.key});
+  final String address;
+  final String additional;
+  final VoidCallback onTap;
+
+  const _AddressItem({
+    required this.address,
+    required this.additional,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
-      child: const ListTile(
+      child: ListTile(
+        onTap: onTap,
         title: Text(
-          'Av. Paulista, 200',
+          address,
         ),
-        subtitle: Text('Complemento Xx'),
-        leading: CircleAvatar(
+        subtitle: Text(additional),
+        leading: const CircleAvatar(
           radius: 30,
           backgroundColor: Colors.white,
           child: Icon(
