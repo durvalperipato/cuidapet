@@ -1,15 +1,20 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cuidapet_mobile/app/core/helpers/constants.dart';
+import 'package:cuidapet_mobile/app/core/local_storage/local_storage.dart';
 import 'package:cuidapet_mobile/app/entities/address_entity.dart';
 import 'package:cuidapet_mobile/app/models/place_model.dart';
 import 'package:cuidapet_mobile/repositories/address/address_repository.dart';
 import 'package:cuidapet_mobile/services/address/address_service.dart';
 
 class AddressServiceImpl implements AddressService {
+  final LocalStorage _localStorage;
   final AddressRepository _addressRepository;
 
   AddressServiceImpl({
     required AddressRepository addressRepository,
-  }) : _addressRepository = addressRepository;
+    required LocalStorage localStorage,
+  })  : _addressRepository = addressRepository,
+        _localStorage = localStorage;
 
   @override
   Future<List<PlaceModel>> findAddressByGooglePlaces(String addressPattern) async =>
@@ -33,4 +38,22 @@ class AddressServiceImpl implements AddressService {
 
   @override
   Future<void> deleteAll() async => _addressRepository.deleteAll();
+
+  @override
+  Future<AddressEntity?> getAddressSelected() async {
+    final addressJson =
+        await _localStorage.read<String>(Constants.LOCAL_STORAGE_DEFAULT_ADDRESS_DATA_KEY);
+    if (addressJson != null) {
+      return AddressEntity.fromJson(addressJson);
+    }
+    return null;
+  }
+
+  @override
+  Future<void> selectAddress(AddressEntity addressEntity) async {
+    await _localStorage.write<String>(
+      Constants.LOCAL_STORAGE_DEFAULT_ADDRESS_DATA_KEY,
+      addressEntity.toJson(),
+    );
+  }
 }

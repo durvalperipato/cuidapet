@@ -3,7 +3,7 @@ part of '../login_page.dart';
 class _LoginRegisterButtons extends StatelessWidget {
   final controller = Modular.get<LoginController>();
 
-  _LoginRegisterButtons({super.key});
+  _LoginRegisterButtons();
 
   @override
   Widget build(BuildContext context) {

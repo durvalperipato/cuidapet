@@ -13,7 +13,6 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
 
-part 'widgets/address_item.dart';
 part 'widgets/address_search_widget/address_search_page.dart';
 
 class AddressPage extends StatefulWidget {
@@ -114,8 +113,12 @@ class _AddressPageState extends PageLifeCycleState<AddressController, AddressPag
               const SizedBox(height: 20),
               Observer(
                 builder: (_) => Column(
-                  children:
-                      controller.addresses.map((data) => _ItemTile(address: data.address)).toList(),
+                  children: controller.addresses
+                      .map((data) => _ItemTile(
+                            address: data.address,
+                            onTap: () => controller.selectAddress(data),
+                          ))
+                      .toList(),
                 ),
               ),
             ],
