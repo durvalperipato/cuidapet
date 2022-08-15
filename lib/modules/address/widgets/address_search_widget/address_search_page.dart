@@ -74,7 +74,11 @@ class _AddressSearchWidgetState extends State<_AddressSearchPage> {
     /* if (pattern.isNotEmpty) {
       return controller.searchAddress(pattern);
     } */
-    return <PlaceModel>[PlaceModel(address: 'Avenida Paulista, 2000', lat: 250, lng: 201)];
+    return <PlaceModel>[
+      PlaceModel(address: 'Avenida Paulista, 2000', lat: 250, lng: 201),
+      PlaceModel(address: 'Avenida Paulista 2, 2020', lat: 250, lng: 201),
+      PlaceModel(address: 'Avenida Paulista 3, 2040', lat: 250, lng: 201),
+    ];
   }
 
   void _onSuggestionSelected(PlaceModel suggestion) {
@@ -85,14 +89,17 @@ class _AddressSearchWidgetState extends State<_AddressSearchPage> {
 
 class _ItemTile extends StatelessWidget {
   final String address;
+  final VoidCallback? onTap;
 
   const _ItemTile({
     required this.address,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       leading: const Icon(Icons.location_on),
       title: Text(address),
     );
