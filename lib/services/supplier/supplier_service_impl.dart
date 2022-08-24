@@ -8,5 +8,6 @@ class SupplierServiceImpl implements SupplierService {
   SupplierServiceImpl({required SupplierRepository supplierRepository})
       : _repository = supplierRepository;
 
+  @override
   Future<List<SupplierCategoryModel>> getCategories() => _repository.getCategories();
 }

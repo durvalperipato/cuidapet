@@ -6,7 +6,12 @@ import 'home_page.dart';
 
 class HomeModule extends Module {
   @override
-  final List<Bind> binds = [Bind.lazySingleton((i) => HomeController(addressService: i()))];
+  final List<Bind> binds = [
+    Bind.lazySingleton((i) => HomeController(
+          addressService: i(),
+          supplierService: i(),
+        ))
+  ];
 
   @override
   List<Module> get imports => [SupplierCoreModule()];
