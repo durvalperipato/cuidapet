@@ -1,8 +1,9 @@
-import 'package:cuidapet_mobile/modules/address/address_module.dart';
-import 'package:cuidapet_mobile/modules/auth/auth_module.dart';
-import 'package:cuidapet_mobile/modules/core/core_module.dart';
-import 'package:cuidapet_mobile/modules/core/home/home_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../modules/address/address_module.dart';
+import '../modules/auth/auth_module.dart';
+import '../modules/core/core_module.dart';
+import '../modules/core/home/home_module.dart';
 
 class AppModule extends Module {
   @override

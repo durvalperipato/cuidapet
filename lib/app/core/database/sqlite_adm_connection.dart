@@ -1,5 +1,6 @@
-import 'package:cuidapet_mobile/app/core/database/sqlite_connection_factory.dart';
 import 'package:flutter/material.dart';
+
+import 'sqlite_connection_factory.dart';
 
 class SqliteAdmConnection with WidgetsBindingObserver {
   @override

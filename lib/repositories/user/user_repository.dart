@@ -1,6 +1,6 @@
-import 'package:cuidapet_mobile/app/models/confirm_login_model.dart';
-import 'package:cuidapet_mobile/app/models/social_network_model.dart';
-import 'package:cuidapet_mobile/app/models/user_model.dart';
+import '../../app/models/confirm_login_model.dart';
+import '../../app/models/social_network_model.dart';
+import '../../app/models/user_model.dart';
 
 abstract class UserRepository {
   Future<void> register({required String email, required String password});

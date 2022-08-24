@@ -1,5 +1,6 @@
-import 'package:cuidapet_mobile/app/core/database/migrations/migration.dart';
 import 'package:sqflite/sqflite.dart';
+
+import 'migration.dart';
 
 class MigrationV1 implements Migration {
   @override

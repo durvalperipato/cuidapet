@@ -1,9 +1,10 @@
-import 'package:cuidapet_mobile/app/core/database/sqlite_adm_connection.dart';
-import 'package:cuidapet_mobile/app/core/ui/ui_config.dart';
+import 'package:asuka/asuka.dart' as asuka;
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:asuka/asuka.dart' as asuka;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'core/database/sqlite_adm_connection.dart';
+import 'core/ui/ui_config.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});

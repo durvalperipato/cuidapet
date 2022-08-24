@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:google_place/google_place.dart';
 
-import 'package:cuidapet_mobile/app/core/database/sqlite_connection_factory.dart';
-import 'package:cuidapet_mobile/app/core/exceptions/failure.dart';
-import 'package:cuidapet_mobile/app/core/helpers/environments.dart';
-import 'package:cuidapet_mobile/app/entities/address_entity.dart';
-import 'package:cuidapet_mobile/app/models/place_model.dart';
-import 'package:cuidapet_mobile/repositories/address/address_repository.dart';
+import '../../app/core/database/sqlite_connection_factory.dart';
+import '../../app/core/exceptions/failure.dart';
+import '../../app/core/helpers/environments.dart';
+import '../../app/entities/address_entity.dart';
+import '../../app/models/place_model.dart';
+import 'address_repository.dart';
 
 class AddressRepositoryImpl implements AddressRepository {
   final SqliteConnectionFactory _sqliteConnectionFactory;

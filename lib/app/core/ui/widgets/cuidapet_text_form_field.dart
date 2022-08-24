@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:cuidapet_mobile/app/core/ui/extensions/theme_extension.dart';
+
+import '../extensions/theme_extension.dart';
 
 class CuidapetTextFormField extends StatelessWidget {
   final TextEditingController? controller;
@@ -15,7 +16,7 @@ class CuidapetTextFormField extends StatelessWidget {
     this.validator,
     required this.label,
     this.obscureText = false,
-  })  : _obscureTextVN = ValueNotifier<bool>(obscureText);
+  }) : _obscureTextVN = ValueNotifier<bool>(obscureText);
 
   @override
   Widget build(BuildContext context) {

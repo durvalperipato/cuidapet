@@ -1,21 +1,30 @@
-import 'package:cuidapet_mobile/app/core/ui/extensions/size_screen_extension.dart';
-import 'package:cuidapet_mobile/app/core/ui/extensions/theme_extension.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../../../../app/core/ui/extensions/size_screen_extension.dart';
+import '../../../../app/core/ui/extensions/theme_extension.dart';
+import '../home_controller.dart';
+
 class HomeAppBar extends SliverAppBar {
-  const HomeAppBar({super.key})
+  HomeAppBar(HomeController controller, {super.key})
       : super(
           expandedHeight: 120,
           collapsedHeight: 100,
           elevation: 0,
-          flexibleSpace: const _CuidapetAppBar(),
+          flexibleSpace: _CuidapetAppBar(
+            controller: controller,
+          ),
           iconTheme: const IconThemeData(color: Colors.black),
           pinned: true,
         );
 }
 
 class _CuidapetAppBar extends StatelessWidget {
-  const _CuidapetAppBar();
+  final HomeController controller;
+
+  const _CuidapetAppBar({
+    required this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +48,7 @@ class _CuidapetAppBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 65.0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () => controller.goToAddressPage(),
               icon: const Icon(
                 Icons.location_on,
                 color: Colors.black,

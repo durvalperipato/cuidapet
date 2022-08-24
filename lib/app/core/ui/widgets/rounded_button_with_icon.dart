@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cuidapet_mobile/app/core/ui/extensions/size_screen_extension.dart';
 import 'package:flutter/material.dart';
+
+import '../extensions/size_screen_extension.dart';
 
 class RoundedButtonWithIcon extends StatelessWidget {
   final GestureTapCallback onTap;

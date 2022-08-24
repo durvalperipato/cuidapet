@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_relative_imports
+
 import 'dart:io';
 
 import 'package:cuidapet_mobile/app/core/exceptions/failure.dart';

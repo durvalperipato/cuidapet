@@ -1,6 +1,7 @@
-import 'package:cuidapet_mobile/modules/address/widgets/address_detail/address_detail_controller.dart';
-import 'package:cuidapet_mobile/modules/address/widgets/address_detail/address_detail_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'address_detail_controller.dart';
+import 'address_detail_page.dart';
 
 class AddressDetailModule extends Module {
   @override

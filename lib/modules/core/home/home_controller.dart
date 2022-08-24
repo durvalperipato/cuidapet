@@ -1,10 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cuidapet_mobile/app/core/life_cycle/controller_life_cycle.dart';
-import 'package:cuidapet_mobile/app/core/ui/widgets/loader.dart';
-import 'package:cuidapet_mobile/app/entities/address_entity.dart';
-import 'package:cuidapet_mobile/services/address/address_service.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../../app/core/life_cycle/controller_life_cycle.dart';
+import '../../../app/core/ui/widgets/loader.dart';
+import '../../../app/entities/address_entity.dart';
+import '../../../services/address/address_service.dart';
 
 part 'home_controller.g.dart';
 

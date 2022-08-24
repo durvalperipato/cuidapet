@@ -1,6 +1,7 @@
-import 'package:cuidapet_mobile/app/core/life_cycle/controller_life_cycle.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'controller_life_cycle.dart';
 
 abstract class PageLifeCycleState<C extends ControllerLifeCycle, P extends StatefulWidget>
     extends State<P> {

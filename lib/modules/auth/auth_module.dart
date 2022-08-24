@@ -1,13 +1,14 @@
-import 'package:cuidapet_mobile/modules/auth/home/auth_home_page.dart';
-import 'package:cuidapet_mobile/modules/auth/login/login_module.dart';
-import 'package:cuidapet_mobile/modules/auth/register/register_module.dart';
-import 'package:cuidapet_mobile/repositories/social/social_repository.dart';
-import 'package:cuidapet_mobile/repositories/social/social_repository_impl.dart';
-import 'package:cuidapet_mobile/repositories/user/user_repository.dart';
-import 'package:cuidapet_mobile/repositories/user/user_repository_impl.dart';
-import 'package:cuidapet_mobile/services/user/user_service.dart';
-import 'package:cuidapet_mobile/services/user/user_service_impl.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../repositories/social/social_repository.dart';
+import '../../repositories/social/social_repository_impl.dart';
+import '../../repositories/user/user_repository.dart';
+import '../../repositories/user/user_repository_impl.dart';
+import '../../services/user/user_service.dart';
+import '../../services/user/user_service_impl.dart';
+import 'home/auth_home_page.dart';
+import 'login/login_module.dart';
+import 'register/register_module.dart';
 
 class AuthModule extends Module {
   @override

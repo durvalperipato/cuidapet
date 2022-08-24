@@ -1,17 +1,18 @@
 import 'dart:async';
 
-import 'package:cuidapet_mobile/app/core/life_cycle/page_life_cycle_state.dart';
-import 'package:cuidapet_mobile/app/core/ui/extensions/theme_extension.dart';
-import 'package:cuidapet_mobile/app/models/place_model.dart';
-import 'package:cuidapet_mobile/modules/address/address_controller.dart';
-import 'package:cuidapet_mobile/modules/address/widgets/address_search_widget/address_search_controller.dart';
-import 'package:cuidapet_mobile/modules/core/mixins/location_mixin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../app/core/life_cycle/page_life_cycle_state.dart';
+import '../../app/core/ui/extensions/theme_extension.dart';
+import '../../app/models/place_model.dart';
+import '../core/mixins/location_mixin.dart';
+import 'address_controller.dart';
+import 'widgets/address_search_widget/address_search_controller.dart';
 
 part 'widgets/address_item.dart';
 part 'widgets/address_search_widget/address_search_page.dart';

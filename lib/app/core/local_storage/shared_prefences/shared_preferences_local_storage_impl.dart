@@ -1,5 +1,6 @@
-import 'package:cuidapet_mobile/app/core/local_storage/local_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../local_storage.dart';
 
 class SharedPreferencesLocalStorageImpl implements LocalStorage {
   Future<SharedPreferences> get _instance => SharedPreferences.getInstance();

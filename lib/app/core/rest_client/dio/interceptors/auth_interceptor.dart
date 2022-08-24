@@ -1,7 +1,8 @@
-import 'package:cuidapet_mobile/app/core/helpers/constants.dart';
-import 'package:cuidapet_mobile/app/core/local_storage/local_storage.dart';
-import 'package:cuidapet_mobile/modules/core/auth/auth_store.dart';
 import 'package:dio/dio.dart';
+
+import '../../../../../modules/core/auth/auth_store.dart';
+import '../../../helpers/constants.dart';
+import '../../../local_storage/local_storage.dart';
 
 class AuthInterceptor extends Interceptor {
   final LocalStorage _localStorage;

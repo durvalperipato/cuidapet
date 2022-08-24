@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:cuidapet_mobile/app/core/database/sqlite_migration_factory.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:synchronized/synchronized.dart';
+
+import 'sqlite_migration_factory.dart';
 
 class SqliteConnectionFactory {
   static const _version = 1;

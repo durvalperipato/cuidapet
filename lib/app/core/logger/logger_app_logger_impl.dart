@@ -1,5 +1,6 @@
-import 'package:cuidapet_mobile/app/core/logger/app_logger.dart';
 import 'package:logger/logger.dart';
+
+import 'app_logger.dart';
 
 class LoggerAppLoggerImpl implements AppLogger {
   final logger = Logger();

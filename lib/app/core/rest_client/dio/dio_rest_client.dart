@@ -1,14 +1,15 @@
-import 'package:cuidapet_mobile/app/core/helpers/constants.dart';
-import 'package:cuidapet_mobile/app/core/helpers/environments.dart';
-import 'package:cuidapet_mobile/app/core/local_storage/local_storage.dart';
-import 'package:cuidapet_mobile/app/core/logger/app_logger.dart';
-import 'package:cuidapet_mobile/app/core/rest_client/dio/interceptors/auth_interceptor.dart';
-import 'package:cuidapet_mobile/app/core/rest_client/dio/interceptors/auth_refresh_token_interceptor.dart';
-import 'package:cuidapet_mobile/app/core/rest_client/rest_client.dart';
-import 'package:cuidapet_mobile/app/core/rest_client/rest_client_exception.dart';
-import 'package:cuidapet_mobile/app/core/rest_client/rest_client_response.dart';
-import 'package:cuidapet_mobile/modules/core/auth/auth_store.dart';
 import 'package:dio/dio.dart';
+
+import '../../../../modules/core/auth/auth_store.dart';
+import '../../helpers/constants.dart';
+import '../../helpers/environments.dart';
+import '../../local_storage/local_storage.dart';
+import '../../logger/app_logger.dart';
+import '../rest_client.dart';
+import '../rest_client_exception.dart';
+import '../rest_client_response.dart';
+import 'interceptors/auth_interceptor.dart';
+import 'interceptors/auth_refresh_token_interceptor.dart';
 
 class DioRestClient implements RestClient {
   late final Dio _dio;

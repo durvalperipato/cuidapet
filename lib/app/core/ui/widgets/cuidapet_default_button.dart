@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:cuidapet_mobile/app/core/ui/extensions/theme_extension.dart';
+import '../extensions/theme_extension.dart';
 
 class CuidapetDefaultButton extends StatelessWidget {
   final String label;

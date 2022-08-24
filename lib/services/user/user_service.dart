@@ -1,4 +1,4 @@
-import 'package:cuidapet_mobile/app/models/social_login_type.dart';
+import '../../app/models/social_login_type.dart';
 
 abstract class UserService {
   Future<void> register({required String email, required String password});

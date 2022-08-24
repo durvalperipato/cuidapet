@@ -1,11 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cuidapet_mobile/app/models/user_model.dart';
 import 'package:flutter/material.dart';
-
-import 'package:cuidapet_mobile/app/core/ui/extensions/size_screen_extension.dart';
-import 'package:cuidapet_mobile/modules/core/auth/auth_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../../app/core/ui/extensions/size_screen_extension.dart';
+import '../../../app/models/user_model.dart';
+import '../../core/auth/auth_store.dart';
 
 class AuthHomePage extends StatefulWidget {
   final AuthStore _authStore;
@@ -13,7 +13,7 @@ class AuthHomePage extends StatefulWidget {
   const AuthHomePage({
     super.key,
     required AuthStore authStore,
-  })  : _authStore = authStore;
+  }) : _authStore = authStore;
 
   @override
   State<AuthHomePage> createState() => _AuthHomePageState();

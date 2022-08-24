@@ -1,11 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cuidapet_mobile/app/core/exceptions/expire_token_exception.dart';
-import 'package:cuidapet_mobile/app/core/helpers/constants.dart';
-import 'package:cuidapet_mobile/app/core/local_storage/local_storage.dart';
-import 'package:cuidapet_mobile/app/core/logger/app_logger.dart';
-import 'package:cuidapet_mobile/app/core/rest_client/rest_client.dart';
-import 'package:cuidapet_mobile/modules/core/auth/auth_store.dart';
 import 'package:dio/dio.dart';
+
+import '../../../../../modules/core/auth/auth_store.dart';
+import '../../../exceptions/expire_token_exception.dart';
+import '../../../helpers/constants.dart';
+import '../../../local_storage/local_storage.dart';
+import '../../../logger/app_logger.dart';
+import '../../rest_client.dart';
 
 class AuthRefreshTokenInterceptor extends Interceptor {
   final AuthStore _authStore;

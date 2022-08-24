@@ -1,13 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cuidapet_mobile/app/core/ui/extensions/size_screen_extension.dart';
-import 'package:cuidapet_mobile/app/core/ui/extensions/theme_extension.dart';
-import 'package:cuidapet_mobile/app/core/ui/widgets/cuidapet_default_button.dart';
-import 'package:cuidapet_mobile/app/models/place_model.dart';
-import 'package:cuidapet_mobile/modules/address/widgets/address_detail/address_detail_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../../../app/core/ui/extensions/size_screen_extension.dart';
+import '../../../../app/core/ui/extensions/theme_extension.dart';
+import '../../../../app/core/ui/widgets/cuidapet_default_button.dart';
+import '../../../../app/models/place_model.dart';
+import 'address_detail_controller.dart';
 
 class AddressDetailPage extends StatefulWidget {
   final PlaceModel place;

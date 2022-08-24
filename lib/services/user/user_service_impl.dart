@@ -1,17 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cuidapet_mobile/app/core/exceptions/failure.dart';
-import 'package:cuidapet_mobile/app/core/exceptions/user_exists_exception.dart';
-import 'package:cuidapet_mobile/app/core/exceptions/user_not_exists_exception.dart';
-import 'package:cuidapet_mobile/app/core/helpers/constants.dart';
-import 'package:cuidapet_mobile/app/core/local_storage/local_storage.dart';
-import 'package:cuidapet_mobile/app/core/logger/app_logger.dart';
-import 'package:cuidapet_mobile/app/models/social_login_type.dart';
-import 'package:cuidapet_mobile/app/models/social_network_model.dart';
-import 'package:cuidapet_mobile/repositories/social/social_repository.dart';
-import 'package:cuidapet_mobile/repositories/user/user_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import './user_service.dart';
+import '../../app/core/exceptions/failure.dart';
+import '../../app/core/exceptions/user_exists_exception.dart';
+import '../../app/core/exceptions/user_not_exists_exception.dart';
+import '../../app/core/helpers/constants.dart';
+import '../../app/core/local_storage/local_storage.dart';
+import '../../app/core/logger/app_logger.dart';
+import '../../app/models/social_login_type.dart';
+import '../../app/models/social_network_model.dart';
+import '../../repositories/social/social_repository.dart';
+import '../../repositories/user/user_repository.dart';
 
 class UserServiceImpl implements UserService {
   final UserRepository _userRepository;
