@@ -9,7 +9,7 @@ class HomeAppBar extends SliverAppBar {
   HomeAppBar(HomeController controller, {super.key})
       : super(
           expandedHeight: 120,
-          collapsedHeight: 100,
+          collapsedHeight: 120,
           elevation: 0,
           flexibleSpace: _CuidapetAppBar(
             controller: controller,
