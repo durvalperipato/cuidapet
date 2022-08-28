@@ -6,6 +6,7 @@ import '../../../app/core/ui/extensions/size_screen_extension.dart';
 import '../../../app/core/ui/extensions/theme_extension.dart';
 import '../../../app/entities/address_entity.dart';
 import '../../../app/models/supplier_category_model.dart';
+import '../../../app/models/supplier_nearby_me_model.dart';
 import 'home_controller.dart';
 import 'widgets/home_appbar.dart';
 
@@ -27,7 +28,12 @@ class _HomePageState extends PageLifeCycleState<HomeController, HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: TextButton(
+          onPressed: () => controller.logout(),
+          child: const Text('Sair'),
+        ),
+      ),
       body: NestedScrollView(
         headerSliverBuilder: (context, innexBoxIsScrolled) {
           return [

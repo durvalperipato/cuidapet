@@ -4,11 +4,11 @@ part of '../../address_page.dart';
 typedef AddressSelectedCallback = void Function(PlaceModel);
 
 class _AddressSearchPage extends StatefulWidget {
-  final AddressSelectedCallback addresSelectedCallback;
+  final AddressSelectedCallback addressSelectedCallback;
   final PlaceModel? place;
   const _AddressSearchPage({
     super.key,
-    required this.addresSelectedCallback,
+    required this.addressSelectedCallback,
     required this.place,
   });
 
@@ -75,7 +75,8 @@ class _AddressSearchWidgetState extends State<_AddressSearchPage> {
       return controller.searchAddress(pattern);
     } */
     return <PlaceModel>[
-      PlaceModel(address: 'Avenida Paulista, 2000', lat: 250, lng: 201),
+      PlaceModel(
+          address: 'Avenida Paulista, 2000', lat: -23.561001980198558, lng: -46.656465744306665),
       PlaceModel(address: 'Avenida Paulista 2, 2020', lat: 250, lng: 201),
       PlaceModel(address: 'Avenida Paulista 3, 2040', lat: 250, lng: 201),
     ];
@@ -83,7 +84,7 @@ class _AddressSearchWidgetState extends State<_AddressSearchPage> {
 
   void _onSuggestionSelected(PlaceModel suggestion) {
     _searchTextEC.text = suggestion.address;
-    widget.addresSelectedCallback(suggestion);
+    widget.addressSelectedCallback(suggestion);
   }
 }
 

@@ -15,4 +15,10 @@ abstract class PageLifeCycleState<C extends ControllerLifeCycle, P extends State
     controller.onInit(params);
     WidgetsBinding.instance.addPostFrameCallback((_) => controller.onReady());
   }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 }

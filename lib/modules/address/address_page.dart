@@ -89,7 +89,7 @@ class _AddressPageState extends PageLifeCycleState<AddressController, AddressPag
                 Observer(
                   builder: (_) => _AddressSearchPage(
                     key: UniqueKey(),
-                    addresSelectedCallback: (place) {
+                    addressSelectedCallback: (place) {
                       controller.goToAddressDetail(place);
                     },
                     place: controller.placeModel,

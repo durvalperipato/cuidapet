@@ -7,8 +7,10 @@ import '../../../app/core/ui/widgets/loader.dart';
 import '../../../app/core/ui/widgets/messages.dart';
 import '../../../app/entities/address_entity.dart';
 import '../../../app/models/supplier_category_model.dart';
+import '../../../app/models/supplier_nearby_me_model.dart';
 import '../../../services/address/address_service.dart';
 import '../../../services/supplier/supplier_service.dart';
+import '../auth/auth_store.dart';
 
 part 'home_controller.g.dart';
 
@@ -19,6 +21,7 @@ class HomeController = HomeControllerBase with _$HomeController;
 abstract class HomeControllerBase with Store, ControllerLifeCycle {
   final AddressService _addressService;
   final SupplierService _supplierService;
+  final AuthStore _authStore;
 
   @readonly
   AddressEntity? _addressEntity;
@@ -29,11 +32,29 @@ abstract class HomeControllerBase with Store, ControllerLifeCycle {
   @readonly
   var _supplierPageTypeSelected = SupplierPageType.list;
 
+  @readonly
+  var _listSupplierByAddress = <SupplierNearbyMeModel>[];
+
+  late ReactionDisposer findSuppliersReactionDisposer;
+
   HomeControllerBase({
     required AddressService addressService,
     required SupplierService supplierService,
+    required AuthStore authStore,
   })  : _addressService = addressService,
-        _supplierService = supplierService;
+        _supplierService = supplierService,
+        _authStore = authStore;
+
+  @override
+  void onInit([Map<String, dynamic>? params]) {
+    findSuppliersReactionDisposer =
+        reaction((_) => _addressEntity, (address) => findSupplierByAddress());
+  }
+
+  @override
+  void dispose() {
+    findSuppliersReactionDisposer();
+  }
 
   @override
   Future<void> onReady() async {
@@ -76,5 +97,20 @@ abstract class HomeControllerBase with Store, ControllerLifeCycle {
   @action
   void changeTabSupplier(SupplierPageType supplierPageType) {
     _supplierPageTypeSelected = supplierPageType;
+  }
+
+  @action
+  Future<void> logout() async {
+    await _authStore.logout();
+  }
+
+  @action
+  Future<void> findSupplierByAddress() async {
+    if (_addressEntity != null) {
+      final suppliers = await _supplierService.findNearBy(_addressEntity!);
+      _listSupplierByAddress = [...suppliers];
+    } else {
+      Messages.alert('Para realizar a busca de PetShops você precisa selecionar um endereço');
+    }
   }
 }
