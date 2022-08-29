@@ -17,7 +17,7 @@ class _HomeSupplierTab extends StatelessWidget {
               duration: const Duration(milliseconds: 400),
               child: homeController.supplierPageTypeSelected == SupplierPageType.list
                   ? _HomeSupplierList(homeController: homeController)
-                  : const _HomeSupplierGrid(),
+                  : _HomeSupplierGrid(homeController: homeController),
             ),
           ),
         ),
@@ -191,10 +191,82 @@ class _HomeSupplierListItemWidget extends StatelessWidget {
 }
 
 class _HomeSupplierGrid extends StatelessWidget {
-  const _HomeSupplierGrid();
+  final HomeController homeController;
+
+  const _HomeSupplierGrid({
+    required this.homeController,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Supplier Grid');
+    return CustomScrollView(
+      slivers: [
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(childCount: 10, (context, index) {
+            return const _HomeSupplierCardWidget();
+          }),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 1.1,
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class _HomeSupplierCardWidget extends StatelessWidget {
+  const _HomeSupplierCardWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Card(
+          margin: const EdgeInsets.only(top: 40, left: 10, right: 10, bottom: 10),
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: SizedBox.expand(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 40.0,
+                left: 10,
+                right: 10,
+                bottom: 10,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'Clinica Central ABC',
+                    style: context.textTheme.subtitle2,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const Text(
+                    '1.34 km de distância',
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: CircleAvatar(
+            radius: 40,
+            backgroundColor: Colors.grey[200],
+            child: const CircleAvatar(
+              radius: 35,
+              backgroundImage: NetworkImage(
+                  'https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png'),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
