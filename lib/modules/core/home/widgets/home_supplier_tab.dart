@@ -201,14 +201,22 @@ class _HomeSupplierGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverGrid(
-          delegate: SliverChildBuilderDelegate(childCount: 10, (context, index) {
-            return const _HomeSupplierCardWidget();
-          }),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.1,
-          ),
+        Observer(
+          builder: (_) {
+            return SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                childCount: homeController.listSupplierByAddress.length,
+                (context, index) {
+                  final supplier = homeController.listSupplierByAddress[index];
+                  return _HomeSupplierCardWidget(supplier);
+                },
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1.1,
+              ),
+            );
+          },
         )
       ],
     );
@@ -216,7 +224,9 @@ class _HomeSupplierGrid extends StatelessWidget {
 }
 
 class _HomeSupplierCardWidget extends StatelessWidget {
-  const _HomeSupplierCardWidget({Key? key}) : super(key: key);
+  final SupplierNearbyMeModel supplier;
+
+  const _HomeSupplierCardWidget(this.supplier);
 
   @override
   Widget build(BuildContext context) {
@@ -240,13 +250,13 @@ class _HomeSupplierCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    'Clinica Central ABC',
+                    supplier.name,
                     style: context.textTheme.subtitle2,
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const Text(
-                    '1.34 km de distância',
+                  Text(
+                    '${supplier.distance.toStringAsFixed(2)} km de distância',
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
@@ -259,10 +269,9 @@ class _HomeSupplierCardWidget extends StatelessWidget {
           child: CircleAvatar(
             radius: 40,
             backgroundColor: Colors.grey[200],
-            child: const CircleAvatar(
+            child: CircleAvatar(
               radius: 35,
-              backgroundImage: NetworkImage(
-                  'https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png'),
+              backgroundImage: NetworkImage(supplier.logo),
             ),
           ),
         ),
