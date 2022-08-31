@@ -10,7 +10,7 @@ import '../../../app/models/supplier_category_model.dart';
 import '../../../app/models/supplier_nearby_me_model.dart';
 import '../../../services/address/address_service.dart';
 import '../../../services/supplier/supplier_service.dart';
-import '../auth/auth_store.dart';
+import '../core/auth/auth_store.dart';
 
 part 'home_controller.g.dart';
 

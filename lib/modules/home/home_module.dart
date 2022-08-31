@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../supplier/supplier_core_module.dart';
+import '../core/supplier/supplier_core_module.dart';
 import 'home_controller.dart';
 import 'home_page.dart';
 
